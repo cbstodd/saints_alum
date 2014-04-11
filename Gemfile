@@ -8,7 +8,6 @@ gem 'bcrypt-ruby', '3.0.1'
 group :development, :test do
   gem 'sqlite3' 
   gem 'rspec-rails' 
-
 end
 
 group :development do 
@@ -29,6 +28,7 @@ gem 'jquery-rails'
 
 group :test do
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 group :production do
