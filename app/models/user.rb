@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
+  has_secure_password
 
   # Downcases all users email's in the database
   before_save { email.downcase! }
@@ -12,10 +13,5 @@ class User < ActiveRecord::Base
   # Creates and authenticates a secure password w. password_digest.
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-  has_secure_password
-
-
-
-
 
 end
