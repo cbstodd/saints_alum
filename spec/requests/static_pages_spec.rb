@@ -26,6 +26,9 @@ describe "Static pages" do
   it "should have the right links on the layout" do 
     visit root_path
 
+    click_link "Sign in"
+    page.should have_title("Sign in")
+
     click_link "Home"
     page.should have_title("colinstodd.com")
 

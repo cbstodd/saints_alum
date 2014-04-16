@@ -14,6 +14,8 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
+  it { should respond_to(:authenticate) }
 
   # Assigns everything below to be_valid unless otherwise specified.
   # says: in order for the test to be valid,
@@ -123,4 +125,14 @@ describe User do
       # specify is the same as 'it', and it says it should be false.     
     end    
   end
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+    it "should have a nonblank remember token" do 
+      subject.remember_token.should_not be_blank
+    end    
+  end
+
+
 end
