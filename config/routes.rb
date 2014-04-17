@@ -9,7 +9,8 @@ ColinStodd::Application.routes.draw do
   match "/contact", to: "static_pages#contact" 
 
   # USERS:
-  match "/signup",  to: "users#new"
+  match "/signup",    to: "users#new"
+  match "/edit_user", to: "users#edit"
 
   # SESSION:
   match "/signin",  to: "sessions#new"
