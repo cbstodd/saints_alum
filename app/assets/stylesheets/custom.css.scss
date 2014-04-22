@@ -11,6 +11,7 @@ $lightGrey: #ddd;
 $orange: #FF5F00;
 $red: #DC0000;
 $salmon: #D9534F;
+$wellGrey: #eee;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -35,11 +36,6 @@ body {
 section {
   overflow: auto;
 }
-
-.navbar {
-  background-color: #eee;
-}
-
 
 
 textarea {
@@ -84,10 +80,12 @@ p {
 
 /* header */
 
-#header_links {
+.header_links {
   font-weight: normal;
+  text-align: right;
   &:hover {
   color: $blue;
+
   }
 }
 
@@ -98,7 +96,7 @@ p {
   color: $grey;
   text-transform: lowercase;
   letter-spacing: -1px;
-  padding-top: 12px;
+  padding-top: 7px;
   font-weight: bold;
   line-height: 1;
   &:hover {
