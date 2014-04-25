@@ -19,7 +19,7 @@ describe "Session Pages" do
       before { click_button "Sign in" }
 
       it { should have_title("Sign in") }
-      it { should have_selector("div.alert.alert-error", text: "Invalid email") }
+      it { should have_selector("div.alert.alert-danger", text: "Invalid email") }
 
       describe "after visiting another page" do
         before { click_link "Home" }
@@ -36,7 +36,7 @@ describe "Session Pages" do
 
         it { should have_title(user.name) }
         it { should have_link("Profile", href: user_path(user)) }
-        it { should have_link("Settings", href: edit_user_path(user)) }
+        it { should have_link("Edit", href: edit_user_path(user)) }
         it { should have_link("Users", href: users_path) }
         it { should have_link("Sign out", href: signout_path) }
 
@@ -86,6 +86,20 @@ describe "Session Pages" do
         describe "visiting the user index page" do
           before { visit users_path }
           it { should have_title("Sign in") }
+
+# MICROPOSTS--------------------------------------
+      describe "in the Microposts controller" do
+
+        describe "submitting to the create action" do
+          before { post microposts_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete micropost_path(FactoryGirl.create(:micropost)) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
           
         end
       end
@@ -119,6 +133,8 @@ describe "Session Pages" do
         specify { response.should redirect_to(root_path) }         
        end       
     end
+
+
 
 
 end

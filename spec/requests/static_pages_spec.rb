@@ -8,7 +8,13 @@ describe "Static pages" do
     before { visit root_path }
     it { should have_title("colinstodd.com") }
     it { should_not have_title("Home |") }
-    it { should have_selector("h2", text: "Welcome to my") }
+    it { should have_selector("h2", text: "Welcome to the") }
+  end
+
+  describe "Help page" do
+    before { visit help_path }
+    it { should have_title("Help") }
+    it { should have_selector("h2", text: "Need some help?") }
   end
 
   describe "About page" do
@@ -31,6 +37,9 @@ describe "Static pages" do
 
     click_link "Home"
     page.should have_title("colinstodd.com")
+
+    click_link "Help"
+    page.should have_title("Help")
 
     click_link "About"
     page.should have_title("About")

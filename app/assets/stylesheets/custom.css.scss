@@ -10,6 +10,7 @@ $grey: #646464;
 $lightGrey: #ddd;
 $orange: #FF5F00;
 $red: #DC0000;
+$royalBlue: #000066;
 $salmon: #D9534F;
 $wellGrey: #eee;
 
@@ -29,7 +30,7 @@ html {
 
 body {
   padding-top: 60px;
-  background-image: url("cream_dust.png");
+
 
 }
 
@@ -78,33 +79,37 @@ p {
   line-height: 1.7em;
 }
 
+.jumbotron {
+  background-image: url("gray_jean.png");
+}
+
 /* header */
 
-.header_links {
+#header_links {
   font-weight: normal;
-  text-align: right;
   &:hover {
-  color: $blue;
+  color: $royalBlue;
 
   }
 }
 
 .navbar { 
-  background-color: $wellGrey;
+  background-image: url("gray_jean.png");
+
 }
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $grey;
+  color: $royalBlue;
   text-transform: lowercase;
   letter-spacing: -1px;
-  padding-top: 7px;
+  padding-top: 11px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-  color: $grey;
+  color: $royalBlue;
   text-decoration: none;
   }
 }
@@ -121,7 +126,7 @@ footer {
   color: $grey;
   font-weight: normal;
     &:hover {
-    color: $blue;
+    color: $royalBlue;
     text-decoration: none;
 
     }
@@ -182,7 +187,7 @@ aside {
   margin-right: 10px;
   font-weight: bold;
   a {
-    color: $blue;  
+    color: $royalBlue;  
     &:hover {
     color: $grey;
     text-decoration: none;
@@ -235,3 +240,44 @@ input {
     }
   }
 }
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+  max-width: 50%;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.24em;
+  padding-bottom: 5px;
+}
+
+.content {
+
+
+
+}
+
+#micro-input {
+  max-width: 35%;
+}
+
+
+.timestamp {
+  color: $royalBlue;
+  padding-left: 10px;
+  font-size: small;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+

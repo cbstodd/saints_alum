@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     # Controls what signed in users can access.
   before_filter :correct_user, only:[:edit, :update]
     # Controls non-signed in to be directed to sing-in page not Index. 
-  before_filter :admin_user,  only: :destroy
+  before_filter :admin_user,  only: [:destroy]
     # Sets destroy privlages to only Admin user. 
 
   def index
@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
+      # Linked to paginate on show.html.erb
   end
 
   def new
@@ -30,10 +32,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
@@ -41,7 +39,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
       sign_in @user
@@ -49,18 +46,11 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
-    end
   end
 
 
 
   private
-
-  def signed_in_user
-    unless signed_in?
-      store_location # Stores location (redirect from edit to HOME).
-    redirect_to signin_path, notice: "Please sign in"
-  end
 
   def correct_user
     @user = User.find(params[:id])

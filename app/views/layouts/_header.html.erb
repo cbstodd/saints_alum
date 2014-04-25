@@ -1,19 +1,19 @@
 <header class="navbar navbar-fixed-top navbar-default">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "colinstodd.com", root_path, id: "logo" %>
+      <%= link_to "SaintsAlum.com", root_path, id: "logo" %>
       <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home", root_path, id: "header_links" %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Users", users_path, id: "header_links" %></li>
             <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#" >
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#" id="header_links">
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu " id="bs-example-navbar-collapse-1">
                 <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>
