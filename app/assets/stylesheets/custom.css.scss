@@ -2,7 +2,7 @@
 
 /* Colors, mixins, etc..*/
 
-$blue: #428BCA;
+$blueLight: #2E3455;
 $darkGrey: #333;
 $darkerGrey: #222;
 $brightRed: #FF0000;
@@ -10,7 +10,7 @@ $grey: #646464;
 $lightGrey: #ddd;
 $orange: #FF5F00;
 $red: #DC0000;
-$royalBlue: #000066;
+$royalBlue: #121730;
 $salmon: #D9534F;
 $wellGrey: #eee;
 
@@ -30,7 +30,7 @@ html {
 
 body {
   padding-top: 60px;
-
+  background-image: url("cream_dust.png");
 
 }
 
@@ -79,37 +79,56 @@ p {
   line-height: 1.7em;
 }
 
+a {
+  color: $lightGrey;
+  font-weight: bold;
+  &:hover {
+    color: $grey;
+    text-decoration: none;
+  }
+}
+
 .jumbotron {
-  background-image: url("gray_jean.png");
+   background-image: url("blue_jean.png");
+
 }
 
 /* header */
 
 #header_links {
-  font-weight: normal;
+  color: $lightGrey;
+  font-weight: bold;
   &:hover {
-  color: $royalBlue;
-
+  background-image: url("blue_jean.png");
+  color: $grey;
+  font-weight: bold; 
   }
 }
 
-.navbar { 
-  background-image: url("gray_jean.png");
+.navbar {
+  background-color: $royalBlue; 
+  background-image: url("blue_jean.png");
 
 }
+
+.dropdown .dropdown-toggle {
+  background-image: url("blue_jean.png");
+  background-color: $royalBlue;
+}
+
+
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $royalBlue;
-  text-transform: lowercase;
+  color: $lightGrey;
   letter-spacing: -1px;
   padding-top: 11px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-  color: $royalBlue;
+  color: $lightGrey;
   text-decoration: none;
   }
 }
@@ -195,6 +214,37 @@ aside {
   }
 }
 
+
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $lightGrey;
+    color: $grey;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $royalBlue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
+
 /* forms */
 
 .form {
@@ -216,6 +266,18 @@ input {
 #button {
   max-width: 150px;
   min-width: 150px;
+}
+
+.btn-primary {
+  color: $lightGrey; 
+  border-color: $darkerGrey; 
+  background-color: $royalBlue;
+  &:hover {
+    background-color: $blueLight;
+    color: $lightGrey;
+
+  }
+
 }
 
 #error_explanation {
@@ -241,9 +303,11 @@ input {
   }
 }
 
+
 /* microposts */
 
 .microposts {
+  color: $lightGrey;
   list-style: none;
   margin: 10px 0 0 0;
   max-width: 50%;
@@ -255,14 +319,14 @@ input {
 }
 
 .title {
+  color: $salmon;
   font-weight: bold;
   font-size: 1.24em;
   padding-bottom: 5px;
 }
 
 .content {
-
-
+  display: block;
 
 }
 
@@ -272,12 +336,27 @@ input {
 
 
 .timestamp {
-  color: $royalBlue;
-  padding-left: 10px;
+  color: $grey;
   font-size: small;
 }
 .gravatar {
   float: left;
   margin-right: 10px;
+
+}
+
+.gravatar-micro {
+    color: $royalBlue;
+    font-weight: bold;
+    &:hover {
+    color: $grey;
+    font-weight: bold;
+    text-decoration: none;
+
+    }
+}
+
+.feed {
+
 }
 

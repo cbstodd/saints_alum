@@ -18,6 +18,7 @@ describe User do
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:microposts) }
+  it { should respond_to(:feed) }
 
   # Assigns everything below to be_valid unless otherwise specified.
   #  it {should_not be_valid}. Says: in order for the test to be valid,
@@ -168,6 +169,17 @@ describe User do
       microposts.each do |micropost|
         Micropost.find_by_id(micropost.id).should be_nil
       end
+    end
+
+    describe "status" do
+      let(:unfollowed_post) do 
+        FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(older_micropost) }
+      its(:feed) { should include(newer_micropost) }
+      its(:feed) { should_not include(unfollowed_post) }
+       
     end
   end
 

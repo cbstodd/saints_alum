@@ -7,14 +7,18 @@
       </section>
       <section>
         <%= render 'shared/micropost_form' %>
-      </section>
+       </section>
     </aside>
+    <section class="feed">
+        <h3>User Feed</h3>
+        <%= render 'shared/feed' %>
+    </section>
   </div>
 
   <% else %>
 
   <div class="center jumbotron">
-    <%= link_to image_tag("smLogo3.png"), alt: "Colin Stodd" %>
+    <%= link_to image_tag("smalumBnW.png"), alt: "SaintsAlum.com" %>
     <h2>Welcome to the St. Mary's Alumni Social Network</h2>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-default" %>
   </div>

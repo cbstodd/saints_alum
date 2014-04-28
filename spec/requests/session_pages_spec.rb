@@ -50,7 +50,6 @@ describe "Session Pages" do
 
   describe "authorization" do
 
-
     describe "for non-signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
 

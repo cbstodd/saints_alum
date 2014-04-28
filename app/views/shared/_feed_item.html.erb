@@ -1,0 +1,18 @@
+<div class="jumbotron">
+<li id="<%= feed_item.id %>">
+  <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+  <span class="user">
+    <%= link_to feed_item.user.name, feed_item.user %><br />
+  </span>
+  <span class="title"><%= feed_item.title %></span><br />
+  <span class="content"><%= feed_item.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+  </span>
+  <% if current_user?(feed_item.user) %>
+  <small><%= link_to "delete", feed_item, method: :delete,
+                                   data: { confirm: "Are you sure?" }, 
+                                   title: feed_item.content %></small>
+  <% end %>
+</li>
+</div>
