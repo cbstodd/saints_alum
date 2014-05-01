@@ -5,6 +5,16 @@ class User < ActiveRecord::Base
   has_many :microposts, dependent: :destroy 
     # says user has many microposts. And when user is destroyed,
     #  so should the user's microposts.
+  has_many :relationships, foreign_key: "follower_id", 
+                            dependent: :destroy
+
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id",
+                                    class_name: "Relationship", 
+                                    dependent: :destroy
+                                    
+  has_many :followers, through: :reverse_relationships, 
+                        source: :follower 
 
   # Downcases all users email's in the database
   before_save { |user| user.email = user.email.downcase }
@@ -18,6 +28,20 @@ class User < ActiveRecord::Base
   # Creates and authenticates a secure password w. password_digest.
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
+
+  end
 
   def feed 
     # This is only a proto-feed.

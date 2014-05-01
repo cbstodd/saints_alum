@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ColinStodd::Application.load_tasks
+SaintsAlum::Application.load_tasks

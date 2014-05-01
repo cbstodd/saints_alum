@@ -1,9 +1,15 @@
-ColinStodd::Application.routes.draw do  
+SaintsAlum::Application.routes.draw do  
   
   root to: "static_pages#home"
-  resources :users 
-  resources :sessions,   only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy, :edit]
+
+  resources :users do 
+    member do 
+      get :following, :followers 
+    end
+  end
+  resources :sessions,      only: [:new, :create, :destroy]
+  resources :microposts,    only: [:create, :destroy, :edit]
+  resources :relationships, only: [:create, :destroy, :edit]
   
   # STATIC_PAGES:
   match "/about",   to: "static_pages#about" 
