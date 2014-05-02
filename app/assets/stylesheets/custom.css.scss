@@ -80,7 +80,7 @@ p {
 }
 
 a {
-  color: $lightGrey;
+  color: $royalBlue;
   font-weight: bold;
   &:hover {
     color: $grey;
@@ -89,7 +89,7 @@ a {
 }
 
 #dark-link {
-  color: $royalBlue;
+  color: $lightGrey;
   &:hover {
     color: $grey;
   }
@@ -285,6 +285,10 @@ input {
 
 }
 
+#button { 
+  max-width: 135px;
+}
+
 #error_explanation {
   color: #f00;
   ul {
@@ -360,6 +364,8 @@ input {
 
     }
 }
+
+
 
 .feed {
 
