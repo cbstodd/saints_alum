@@ -78,6 +78,7 @@ describe "User Pages" do
 
     describe "with valid information" do
       before do
+        fill_in "Year",         with: "2002"
         fill_in "Name",         with: "Example User"
         fill_in "Email",        with: "user@example.com"
         fill_in "Password",     with: "foobar"
@@ -122,9 +123,11 @@ describe "User Pages" do
     end
 
     describe "with valid information" do
+      let(:new_year)  { "2015" }
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
+        fill_in "Year",             with: new_year 
         fill_in "Name",             with: new_name
         fill_in "Email",            with: new_email
         fill_in "Password",         with: user.password

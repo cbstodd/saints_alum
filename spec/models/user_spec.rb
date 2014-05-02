@@ -3,13 +3,14 @@ require 'spec_helper'
 describe User do
 
   # Creates a user example.
-  before { @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "foobar", password_confirmation: "foobar") }
+  before { @user = User.new(name: "Example User", year: "2002", email: "user@example.com", 
+                      password: "foobar", password_confirmation: "foobar") }
   # Calls the example.                
   subject { @user }
 
   # Should respond to the User's variables in users/model.  
   it { should respond_to(:name) }
+  it { should respond_to(:year) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
@@ -52,9 +53,43 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when year is not present" do
+    before { @user.year = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when year is not an integer" do
+    before { @user.year = "a..z" }
+    it { should_not be_valid }
+  end
+
+  describe "when year is too long" do
+    before { @user.year = 2.to_s * 5 }
+  end
+
   describe "email is not present" do
     before { @user.email = " " }
     it { should_not be_valid }    
+  end
+
+  describe "when year is Invalid" do
+    it "should be Invalid" do 
+      years = %w[1 '02 98 123 12345 2oo1]
+      years.each do |invalid_year|
+        @user.year = invalid_year 
+        @user.should_not be_valid
+      end
+    end
+  end
+
+  describe "when year is valid" do
+    it "should be valid" do 
+      years = %w[2001 1949 1920 2016]
+      years.each do |valid_year|
+        @user.year = valid_year 
+        @user.should be_valid
+      end
+    end
   end
 
   describe "email format is INvalid" do

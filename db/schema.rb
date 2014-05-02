@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20140430133148) do
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
+    t.integer  "year"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20140430133148) do
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "users", :force => true do |t|
+    t.integer  "year"
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",                         :null => false

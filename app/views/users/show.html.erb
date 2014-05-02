@@ -6,6 +6,7 @@
       <h1>
         <%= gravatar_for @user, "" %>
         <%= @user.name %><br />
+        <small>class of:  </small><%= @user.year %><br />
       </h1>
         <%= link_to "Edit profile", edit_user_path %>
     </section>

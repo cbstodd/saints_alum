@@ -18,6 +18,10 @@ class MicropostsController < ApplicationController
     redirect_to root_path 
   end
 
+  def reply
+
+  end
+
   def edit
   end
 

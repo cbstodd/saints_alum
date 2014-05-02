@@ -12,7 +12,7 @@
   <% if current_user?(feed_item.user) %>
   <small><%= link_to "delete", feed_item, method: :delete,
                                    data: { confirm: "Are you sure?" }, 
-                                   title: feed_item.content %></small>
+                                   title: feed_item.content, id: "dark-link" %></small>
   <% end %>
 </li>
 </div>

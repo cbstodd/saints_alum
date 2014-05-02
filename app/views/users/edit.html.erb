@@ -10,30 +10,31 @@
 </div>
 
 <div class="form">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-7 col-md-7">
-        <%= form_for(@user) do |f| %>
+  <div class="row">
+    <div class="col-xs-7 col-md-7">
+      <%= form_for(@user) do |f| %>
 
-          <%= render 'shared/error_messages', object: f.object %>
+        <%= render 'shared/error_messages', object: f.object %>
 
-          <%= f.label :name %>
-          <%= f.text_field :name %>
+        <%= f.label :year, "Class of", placeholder: "ex 2002" %>
+        <%= f.text_field :year %>
 
-          <%= f.label :email %>
-          <%= f.text_field :email %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-          <%= f.label :password %>
-          <%= f.password_field :password %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
 
-          <%= f.label :password_confirmation, "Confirm Password" %>
-          <%= f.password_field :password_confirmation %>
-          <div id="button">
-            <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-          </div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
 
-          <% end %>
-      </div>
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation %>
+        <div id="button">
+          <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+        </div>
+
+        <% end %>
     </div>
   </div>
 </div>

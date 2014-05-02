@@ -11,6 +11,9 @@
         <%= form_for(@user) do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
 
+          <%= f.label :year, "Class of", placeholder: "ex: 2002" %>
+          <%= f.text_field :year %>
+
           <%= f.label :name %>
           <%= f.text_field :name %>
 

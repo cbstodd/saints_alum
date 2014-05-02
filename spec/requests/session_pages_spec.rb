@@ -98,6 +98,7 @@ describe "Session Pages" do
           before { delete micropost_path(FactoryGirl.create(:micropost)) }
           specify { response.should redirect_to(signin_path) }
         end
+
       end
       
 # FOLLOWING --------------------------------------------
