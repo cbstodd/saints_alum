@@ -16,10 +16,12 @@
     <section>
       <%= render 'follow_form' if signed_in? %>
     </section>
+
+      <%= markdown(@user.profile_info) %>
+
   </aside>
 
   <div class="col-xs-12 col-md-9">
-
     <section>
     <% if @user.microposts.any? %>
       <h3>Posts (<%= @user.microposts.count %>)</h3>
@@ -28,11 +30,8 @@
       </ol>
       <%= will_paginate @microposts %>
     <% end %>
-  </section>
+    </section>
   </div>
-
-
 </div>
 
-</div>
 

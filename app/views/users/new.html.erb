@@ -11,7 +11,7 @@
         <%= form_for(@user) do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
 
-          <%= f.label :year, "Class of", placeholder: "ex: 2002" %>
+          <%= f.label :year, "Year", placeholder: "ex: 2002" %>
           <%= f.text_field :year %>
 
           <%= f.label :name %>
@@ -25,6 +25,10 @@
 
           <%= f.label :password_confirmation, "Confirmation" %>
           <%= f.password_field :password_confirmation %>
+
+          <%= f.label :profile_info, "Profile Information" %>
+          <%= f.text_area :profile_info %>
+
           <div id="button">
             <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
           </div>

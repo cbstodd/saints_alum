@@ -8,4 +8,11 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+def markdown(text)
+  markdown =Redcarpet::Markdown.new(Redcarpet::Render::XHTML,:hard_wrap=>true,:filter_html=>true,:autolink=>true,:no_intra_emphasis=>true)
+  markdown.render(text).html_safe
+end
+
+
 end

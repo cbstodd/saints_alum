@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20140430133148) do
     t.integer  "year"
     t.string   "name"
     t.string   "email"
+    t.text     "profile_info"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
