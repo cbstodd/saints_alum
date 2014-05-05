@@ -59,7 +59,7 @@ describe User do
   end
 
   describe "when year is not an integer" do
-    before { @user.year = "a..z" }
+    before { @user.year = "a".."z" }
     it { should_not be_valid }
   end
 

@@ -4,7 +4,7 @@
     <section>
       <%= gravatar_for @user, "" %>
       <h1><%= @user.name %></h1>
-      <h2><%= @user.year %></h2>
+      <%= @user.year %>
       <span><%= link_to "view my profile", @user %></span>
       <span><b>Posts:</b> <%= @user.microposts.count %></span>
     </section>

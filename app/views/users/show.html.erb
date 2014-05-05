@@ -19,20 +19,16 @@
   </aside>
 
   <div class="col-xs-12 col-md-9">
-
     <section>
-    <% if @user.microposts.any? %>
-      <h3>Posts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
-  </section>
+      <% if @user.microposts.any? %>
+        <h3>Posts (<%= @user.microposts.count %>)</h3>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
+        <%= will_paginate @microposts %>
+      <% end %>
+    </section>
   </div>
-
-
 </div>
 
-</div>
 

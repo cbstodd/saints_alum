@@ -4,33 +4,33 @@
 
 <h2>Sign up to post messages</h2>
 
-<div class="form">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-7 col-md-7">
-        <%= form_for(@user) do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
 
-          <%= f.label :year, "Class of", placeholder: "ex: 2002" %>
-          <%= f.text_field :year %>
+<div class="row form">
+  <div class="col-xs-7 col-md-7">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-          <%= f.label :name %>
-          <%= f.text_field :name %>
+      <%= f.label :year, "Year", placeholder: "ex: 2002" %>
+      <%= f.text_field :year %>
 
-          <%= f.label :email %>
-          <%= f.text_field :email %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-          <%= f.label :password %>
-          <%= f.password_field :password %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-          <%= f.label :password_confirmation, "Confirmation" %>
-          <%= f.password_field :password_confirmation %>
-          <div id="button">
-            <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-          </div>
-          
-          <% end %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+      <div id="button">
+        <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
       </div>
-    </div>
+      
+      <% end %>
   </div>
 </div>
+
+
+

@@ -9,32 +9,31 @@
   <a href="http://gravatar.com/emails" target="_blank">Change your Gravatar</a>
 </div>
 
-<div class="form">
-  <div class="row">
-    <div class="col-xs-7 col-md-7">
-      <%= form_for(@user) do |f| %>
 
-        <%= render 'shared/error_messages', object: f.object %>
+<div class="row form">
+  <div class="col-xs-7 col-md-7">
+    <%= form_for(@user) do |f| %>
 
-        <%= f.label :year, "Class of", placeholder: "ex 2002" %>
-        <%= f.text_field :year %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+      <%= f.label :year, "Year", placeholder: "ex 2002" %>
+      <%= f.text_field :year %>
 
-        <%= f.label :email %>
-        <%= f.text_field :email %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-        <%= f.label :password %>
-        <%= f.password_field :password %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-        <%= f.label :password_confirmation, "Confirm Password" %>
-        <%= f.password_field :password_confirmation %>
-        <div id="button">
-          <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-        </div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-        <% end %>
-    </div>
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation %>
+      <div id="button">
+        <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      </div>
+
+      <% end %>
   </div>
 </div>
