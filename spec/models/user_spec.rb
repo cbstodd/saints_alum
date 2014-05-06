@@ -4,7 +4,8 @@ describe User do
 
   # Creates a user example.
   before { @user = User.new(name: "Example User", year: "2002", email: "user@example.com", 
-                      password: "foobar", password_confirmation: "foobar") }
+                      password: "foobar", password_confirmation: "foobar",
+                      profile_info: "Random info") }
   # Calls the example.                
   subject { @user }
 
@@ -27,6 +28,7 @@ describe User do
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
   it { should respond_to(:unfollow!) }
+  it { should respond_to(:profile_info) }
 
   # Assigns everything below to be_valid unless otherwise specified.
   #  it {should_not be_valid}. Says: in order for the test to be valid,
@@ -70,6 +72,16 @@ describe User do
   describe "email is not present" do
     before { @user.email = " " }
     it { should_not be_valid }    
+  end
+
+  describe "when profile info is empty" do
+    before { @user.profile_info = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when profile info is too long" do
+    before { @user.profile_info = "a" * 2001 }
+    it { should_not be_valid }
   end
 
   describe "when year is Invalid" do

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :year, :email, :password, :password_confirmation
+  attr_accessible :name, :year, :email, :password, :password_confirmation,
+                  :profile_info
   has_secure_password
 
   has_many :microposts, dependent: :destroy 
@@ -20,6 +21,8 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = user.email.downcase }
   before_save :create_remember_token
 
+  validates :profile_info, presence: true, length: { maximum: 2000 }
+  
   validates :name, presence: true, length: { maximum: 50 }
 
 
@@ -53,7 +56,6 @@ class User < ActiveRecord::Base
   def feed 
     Micropost.from_users_followed_by(self)
   end
-
   
 
   private 

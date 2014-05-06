@@ -78,11 +78,12 @@ describe "User Pages" do
 
     describe "with valid information" do
       before do
-        fill_in "Year", with: "2002"
-        fill_in "Name",            with: "Example User"
-        fill_in "Email",           with: "user@example.com"
-        fill_in "Password",        with: "foobar"
-        fill_in "Confirmation",    with: "foobar"
+        fill_in "Year",         with: "2002"
+        fill_in "Name",         with: "Example User"
+        fill_in "Email",        with: "user@example.com"
+        fill_in "Password",     with: "foobar"
+        fill_in "Confirmation", with: "foobar"
+        fill_in "Profile Info", with: "Random Info"
       end
 
       it "should create a user" do
@@ -126,12 +127,14 @@ describe "User Pages" do
       let(:new_year)  { "2005" }
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
+      let(:pf_info)   { "New Random info" }
       before do
         fill_in "Year",             with: new_year 
         fill_in "Name",             with: new_name
         fill_in "Email",            with: new_email
         fill_in "Password",         with: user.password
         fill_in "Confirm Password", with: user.password
+        fill_in "Profile Info",     with: pf_info 
         click_button "Save changes"
       end
 
@@ -155,7 +158,7 @@ describe "User Pages" do
     it { should have_selector("h1", text: user.name) }
 
     describe "profile information" do
-      it { should have_content("About") }
+      it { should have_content("About me:") }
     end
 
     describe "microposts" do

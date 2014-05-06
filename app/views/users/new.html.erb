@@ -4,7 +4,6 @@
 
 <h2>Sign up to post messages</h2>
 
-
 <div class="row form">
   <div class="col-xs-7 col-md-7">
     <%= form_for(@user) do |f| %>
@@ -24,6 +23,10 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
+
+      <%= f.label :profile_info, "Profile Information" %>
+      <%= f.text_area :profile_info, placeholder: "Sports, clubs, current job, etc..." %>
+
       <div id="button">
         <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
       </div>

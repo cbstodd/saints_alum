@@ -9,7 +9,6 @@
   <a href="http://gravatar.com/emails" target="_blank">Change your Gravatar</a>
 </div>
 
-
 <div class="row form">
   <div class="col-xs-7 col-md-7">
     <%= form_for(@user) do |f| %>
@@ -30,6 +29,10 @@
 
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
+
+      <%= f.label :profile_info, "Profile Information" %>
+      <%= f.text_area :profile_info, placeholder: "Sports, clubs, current job, etc..." %>
+
       <div id="button">
         <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
       </div>
