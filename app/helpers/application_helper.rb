@@ -12,7 +12,8 @@ module ApplicationHelper
   class HTMLwithPygments < Redcarpet::Render::HTML
     include Redcarpet::Render::SmartyPants
     def block_code(code, language)
-      Pygments.highlight(code, :lexer => language, :options => {:lineanchors => "line"})
+      Pygments.highlight(code, :lexer => language, :options => {:lineanchors => "line"}) 
+                          
     end
   end
 
@@ -32,7 +33,9 @@ module ApplicationHelper
       quote: true,
       footnotes: true,
       tables: true,
-      gh_blockcode: true
+      gh_blockcode: true,
+      disable_indented_code_blocks: true,
+      fenced_code_blocks: true
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end

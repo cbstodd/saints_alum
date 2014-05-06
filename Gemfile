@@ -12,7 +12,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
 gem 'redcarpet'
-gem 'pygments'
+gem 'pygments.rb'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

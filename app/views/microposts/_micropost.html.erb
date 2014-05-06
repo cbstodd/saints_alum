@@ -1,12 +1,12 @@
 <li class="jumbotron">
   <span class="title"><%= micropost.title %></span><br />
-  <span class="content"><%= micropost.content %></span><br />
+  <span class="content"><%= micropost.content.html_safe %></span><br />
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
   </span>
   <% if current_user?(micropost.user) %>
     <small><%= link_to "delete", micropost, method: :delete,
                                      data: { confirm: "Are you sure?" },
-                                     title: micropost.content %></small>
+                                     title: micropost.content, id: "dark-link" %></small>
   <% end %>
 </li>

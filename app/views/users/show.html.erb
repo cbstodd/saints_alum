@@ -16,9 +16,12 @@
     <section>
       <%= render 'follow_form' if signed_in? %>
     </section>
-      <strong><em>About me: </em></strong>
-      <%= markdown(@user.profile_info) %>
+    
+      <strong>About me: </strong>
 
+      <div class="profile-info">
+        <%= markdown(@user.profile_info) %>
+      </div>
   </aside>
 
   <div class="col-xs-12 col-md-9">
@@ -26,7 +29,7 @@
       <% if @user.microposts.any? %>
         <h3>Posts (<%= @user.microposts.count %>)</h3>
         <ol class="microposts">
-          <%= markdown(render @microposts) %>
+          <%= render @microposts %>
         </ol>
         <%= will_paginate @microposts %>
       <% end %>
