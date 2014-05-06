@@ -26,7 +26,7 @@
       <% if @user.microposts.any? %>
         <h3>Posts (<%= @user.microposts.count %>)</h3>
         <ol class="microposts">
-          <%= render @microposts %>
+          <%= markdown(render @microposts) %>
         </ol>
         <%= will_paginate @microposts %>
       <% end %>
