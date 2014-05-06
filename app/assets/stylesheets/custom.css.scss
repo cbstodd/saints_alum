@@ -95,9 +95,9 @@ a {
 }
 
 #dark-link {
-  color: $lightGrey;
+  color: $eggshellGrey;
   &:hover {
-    color: $grey;
+    color: $lightGrey;
   }
 }
 
@@ -334,11 +334,17 @@ input {
   }
 }
 
+.user {
+  padding-top: 0px;
+}
+
 .title {
   color: $lightGrey;
   font-weight: bold;
   font-size: 1.24em;
   padding-bottom: 5px;
+
+
 }
 
 .content {
@@ -346,7 +352,7 @@ input {
   display: block;
   border-top: 2px solid $lightGrey;
   padding-top: 5px;
-  margin-top: 5px;
+  margin-top: 0px;
 
 }
 
@@ -378,6 +384,7 @@ input {
 }
 
 .feed {
+  margin: 10px 0px 10px 0px;
 
 }
 

@@ -33,9 +33,7 @@ module ApplicationHelper
       quote: true,
       footnotes: true,
       tables: true,
-      gh_blockcode: true,
-      disable_indented_code_blocks: true,
-      fenced_code_blocks: true
+      gh_blockcode: true
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
