@@ -5,11 +5,9 @@
     <%= f.text_area :title, placeholder: "Title", class: "form-control", rows: "1" %>      
     <%= f.text_area :content, placeholder: "Compose new post...", class: "form-control", rows: "5" %>
   </div>
+  <p>
+    <%= f.file_field :image, class: "form-control" %>
 
-  <p>
-    <%= f.file_field :image %>
-  </p>
-  <p>
     <%= f.label :remote_image_url, "or image URL" %><br />
     <%= f.text_field :remote_image_url, class: "form-control", rows: "1"  %>
   </p>
