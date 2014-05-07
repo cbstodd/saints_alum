@@ -13,6 +13,8 @@ gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
 gem 'redcarpet'
 gem 'pygments.rb'
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

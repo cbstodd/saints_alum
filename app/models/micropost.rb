@@ -1,11 +1,12 @@
 class Micropost < ActiveRecord::Base
-  attr_accessible  :title, :content
-  
+  attr_accessible  :title, :content, :image, :remote_image_url
   belongs_to :user 
+  mount_uploader :image, ImageUploader 
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 140 }
   validates :content, presence: true, length: { maximum: 1500 }
+
 
   default_scope order: 'microposts.created_at DESC'
 

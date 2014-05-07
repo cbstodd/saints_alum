@@ -6,7 +6,16 @@
     <%= link_to feed_item.user.name, feed_item.user, id: "dark-link" %><br />
   </span>
   <span class="title"><%= feed_item.title %></span>
-  <span class="content"><%= feed_item.content.html_safe %></span>
+  <span class="content">
+    <%= feed_item.content.html_safe %><br />
+    <% if feed_item.image? %>
+    <div class="image">
+      <%= image_tag feed_item.image_url(:thumb).to_s %>
+    </div>
+    <% else %>
+      <p></p>
+    <% end %>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago
   </span>
