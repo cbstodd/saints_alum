@@ -1,2 +1,3 @@
-# colinstodd.com 
-This is my personal website application
+# Saints_Alum 
+Social network for St. Mary's High School (Annapolis, MD) Alumni.
+~My alma-mater.
