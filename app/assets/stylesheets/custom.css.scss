@@ -36,6 +36,10 @@ body {
 
 }
 
+@media screen and (max-width: 768px) {
+    body { padding-top: 180px; }
+}
+
 section {
   overflow: auto;
 }
